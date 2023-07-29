@@ -8,11 +8,7 @@ void loop() {
   digitalWrite(trig, HIGH);
   delayMicroseconds(10);
   digitalWrite(trig, LOW);
-  int t = pulseIn(echo, HIGH);
-  int d = t * 0.0343 / 2;
-  if (d < 2) {
-    d = 2; }
-  else if (d > 335) {
-    d = 335;}
-  int pwm= map(d, 2, 335, 255, 0);
+  long t = pulseIn(echo, HIGH);
+  long d = t * 0.0343 / 2;
+  int pwm= map(d, 3, 333, 255, 0);
   analogWrite(motor, pwm);}
